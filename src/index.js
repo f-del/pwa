@@ -9,7 +9,11 @@ app.get('/', function (req, res) {
   //res.send('Hello World!');
 //res.send('Hello World! '+__dirname);
 
-  res.render('index.ejs',{"title":"PWA 4 Gamer"});
+  res.render('index.ejs',
+    {
+        "title":"PWA 4 Gamer", 
+        "menuItems" : [{Title :'Accueil' }, {Title: 'Equipe'}]
+    });
 });
 
 app.listen(3000, function () {

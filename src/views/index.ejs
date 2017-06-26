@@ -7,10 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <link rel="stylesheet" type="text/css" href="styles/reset.css">
+    <link rel="stylesheet" type="text/css" href="styles/loader.css">
 </head>
 
 <body>
+    <header></header>    
+    <%- include('./partials/nav', {model : menuItems}); %>
+    <section>
 
+    </section>
+    <% include ./partials/footer %>  
+
+    <div id="appLoader" class="loader">
+        <svg viewBox="0 0 32 32" width="32" height="32">
+            <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+        </svg>
+    </div>
+  
 </body>
-
+<script src="scripts/app.js" async></script>
 </html>
