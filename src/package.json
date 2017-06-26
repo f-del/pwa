@@ -1,0 +1,23 @@
+{
+  "name": "pwa4gamer",
+  "version": "1.0.0",
+  "description": "ProgressiveWebApp Platform For Gamer",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.15.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/f-del/pwa.git"
+  },
+  "author": "fdel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/f-del/pwa/issues"
+  },
+  "homepage": "https://github.com/f-del/pwa#readme"
+}
