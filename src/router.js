@@ -3,7 +3,8 @@ var router = express.Router()
 
 // middleware that is specific to this router
 router.use(function timeLog (req, res, next) {
-  console.log('Time: ', Date.now())
+  console.log('Time: ', Date.now());
+  if(req.xhr) console.log('Ajax call for URL '+req.baseUrl);
   next()
 })
 
@@ -39,6 +40,8 @@ var contentDatas = {
 
 // define the home page route
 router.get('*', function (req, res) {
+    var isAjaxRequest = req.xhr;
+
     var reqDatas;
     var model = {
         "title":"PWA 4 Gamer", 
@@ -72,7 +75,12 @@ router.get('*', function (req, res) {
     model["content"] = './pages/' + reqDatas.content;
 
     try{
-        res.render(reqDatas.template, model);
+        if(isAjaxRequest){
+            res.render(model["content"], model['contentModel']);
+        }
+        else{
+            res.render(reqDatas.template, model);
+        }
     }
     catch(err){
         res.status(500).send('Oupss... ' + req.baseUrl + ' on error ! <br/>'

@@ -14,8 +14,8 @@ window.PWA.Core['Http'] = {
         // Return a new promise.
         return new Promise(function(resolve, reject) {
             var req = new XMLHttpRequest();
-            req.open(method, url);
-
+            req.open(method, url, true);
+            req.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
             req.onload = function() {
                 if (req.status == 200) {
                     resolve(req.response);
