@@ -61,3 +61,4 @@ typings/
 # distribuable compiled items
 dist/
 .vscode
+src/public/js/*
