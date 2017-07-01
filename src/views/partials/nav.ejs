@@ -1,7 +1,9 @@
 <nav>
     <ul>
-        <% model.forEach(function(menuItem){ %>
-                <li><%= menuItem.Title %></li>
+        <% menuItems.forEach(function(menuItem){ %>
+                <li>
+                    <a href="<%= menuItem.href%>"><%= menuItem.title %></a>
+                </li>
         <%  }); %>
     </ul>
 </nav>

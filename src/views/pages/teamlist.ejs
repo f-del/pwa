@@ -1,0 +1,11 @@
+<h1><%= title%></h1>
+<ul>
+    <% members.forEach(function(member){ %>                
+        <li >
+            <img src="<%= member.picture %>"  style="height:20vh;" alt="">
+            <p>
+                <%= member.desc %>
+            </p>
+        </li>
+    <%  }); %>
+</ul>

@@ -11,10 +11,10 @@
 </head>
 
 <body>
-    <header></header>    
-    <%- include('./partials/nav', {model : menuItems}); %>
+    <header></header>
+    <%- include('./partials/nav', nav); %>
     <section>
-        <%- include(content) %>
+        <%- include(content, contentModel) %>
     </section>
     <% include ./partials/footer %>  
 
