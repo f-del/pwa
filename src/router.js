@@ -16,13 +16,28 @@ var appPageDatas = {
 
 
 // define the home page route
-router.get('/', function (req, res) {
-    res.render(appPageDatas['/'].template,
-    {
-        "content": './pages/'+appPageDatas['/'].content,
-        "title":"PWA 4 Gamer", 
-        "menuItems" : [{Title :'Accueil' }, {Title: 'Equipe'}]
-    });
+router.get('*', function (req, res) {
+    var reqDatas;
+    if(req.baseUrl === ''){
+        req.baseUrl = '/';
+    }
+
+    if(appPageDatas[req.baseUrl] === undefined){
+        res.status(404).send('Page ' + req.baseUrl + ' not found');
+    }
+    else reqDatas = appPageDatas[req.baseUrl];
+
+    try{
+        res.render(reqDatas.template,
+        {
+            "content": './pages/' + reqDatas.content,
+            "title":"PWA 4 Gamer", 
+            "menuItems" : [{Title :'Accueil' }, {Title: 'Equipe'}]
+        });
+    }
+    catch(err){
+        res.status(500).send('Oupss... ' + req.baseUrl + ' on error !');
+    }
 })
 
 // define the about route
