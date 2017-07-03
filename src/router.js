@@ -20,7 +20,7 @@ router.get('*', function (req, res) {
     }
     
     var ctrlRes = controller.handle(req.baseUrl, isAjaxRequest);
-    if(ctrlRes.status === 404){
+    if(ctrlRes.status === "404"){
         res.status(404).send('Page ' + req.baseUrl + ' not found');
     }
     else{

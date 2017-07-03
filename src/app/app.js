@@ -1,6 +1,9 @@
 if(typeof window.PWA === 'undefined'){
     window.PWA= {};
 }
+
+//var controller = module.exports;
+
 window.PWA['App'] = class App{
     constructor(){
         var me = this;
@@ -37,11 +40,14 @@ window.PWA['App'] = class App{
         }
     }
     getPartialPage(url){
-                
-        PWA.Core.Http.req('GET', url)
+        var res = module.exports.handle(url);
+        
+        PWA.Core.Http.req('GET', ''+(res.model.content.substring(2))+'.ejs')
             .then(function(response){
                 console.log('Http request '+url+' <br/> '+ response);
                 
+                var html = ejs.render(response, res.model.contentModel);
+
                 window.history.pushState(
                     {
                         'getfromxhr': true,
@@ -49,10 +55,10 @@ window.PWA['App'] = class App{
                     }, 
                     'title to dynamise', 
                     url);
-                document.getElementsByTagName("section")[0].innerHTML = response;
+                document.getElementsByTagName("section")[0].innerHTML = html;
             }, function (error) {
                 console.error("Failed!", error);
             }
-        );
+        );        
     }
 };

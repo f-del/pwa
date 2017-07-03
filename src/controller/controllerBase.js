@@ -71,7 +71,6 @@ var controllerBase = {
                 res.model = model['contentModel'];
             }
             else{
-                
                 res.template = reqDatas.template;
                 res.model = model;            
             }
