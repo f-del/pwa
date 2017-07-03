@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     notify = require('gulp-notify');
 
 gulp.task('scripts', function() {
-  return gulp.src('./public/scripts/**/*.js')
+  return gulp.src('./app/**/*.js')
     //.pipe(jshint('.jshintrc'))
     //.pipe(jshint.reporter('default'))
     .pipe(concat('app.js'))
