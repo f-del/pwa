@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 gulp.task('scripts', function() {
   return gulp.src([
             './app/**/*.js', 
-            './controller/*.js',
+            //'./controller/*.js',
             './lib/*.js'
             ])
     //.pipe(jshint('.jshintrc'))
