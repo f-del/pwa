@@ -12,7 +12,7 @@ requirejs(
         class App{
             constructor(){
                 var me = this;
-                console.log('App start !');
+                console.log('App start !!');
 
                 this.appLoader = document.getElementById("appLoader");
                 
