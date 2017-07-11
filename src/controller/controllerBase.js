@@ -3,18 +3,11 @@ if (typeof define !== 'function') {
     var define = require('amdefine')(module);
 }
 
-define("controller/controllerBase", function(require) {
+define("controller/controllerBase", 
+        ["service/page"], 
+        function(servicePage) {
     
-    var appPageDatas = {
-        '/':{
-            'template': 'index',
-            'content': 'hp'
-        },
-        '/team':{
-            'template': 'index',
-            'content': 'teamlist'
-        }
-    };
+    
 
     var contentDatas = {
 
@@ -59,12 +52,13 @@ define("controller/controllerBase", function(require) {
             };
             var reqDatas;
 
+            var page = servicePage.get(url);
 
-            if(appPageDatas[url] === undefined){
+            if(page === undefined){
                 res.status = '404';
             }
             else{
-                reqDatas = appPageDatas[url];
+                reqDatas = page;
             
                 if(contentDatas[reqDatas.content] !== undefined){
                     model['contentModel'] = contentDatas[reqDatas.content];

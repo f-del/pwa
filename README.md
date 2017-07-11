@@ -2,7 +2,6 @@ Backlog :
 
 Architecture :
 
-* use modules on client side
 * add 'page' service
 * handle custom controller OR custom data service retrieve
 * handle complex page template (more than 1 component / page)
@@ -18,5 +17,4 @@ Features :
 Tooling :
 
 * add gulp watcher on "ressource" folder
-* add gulp livereload
 * auto reload http server node on file modification 

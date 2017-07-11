@@ -30,6 +30,7 @@ requirejs(['express', 'server/router'],
     
     app.use('/lib', express.static(__dirname + '/../lib'));
     app.use('/controller', express.static(__dirname + '/../controller'));
+    app.use('/service', express.static(__dirname + '/../service'));
 
     app.use('*', router);
 
